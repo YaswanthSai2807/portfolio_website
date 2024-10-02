@@ -10,6 +10,7 @@ body{
     line-height: 1.6;  /*the line spacing*/
     background-color: #050831;
 }
+
 /* Main Page*/
 header{
     color: white;
@@ -20,9 +21,11 @@ header{
     z-index: 100;
     background-color: #050831;
 }
+
 b{
     font-size: 20px;
 }
+
 nav {
     display: flex;
     justify-content: space-between;
@@ -53,6 +56,7 @@ nav ul li a:hover{
     background-color: #555;
     border-radius: 5px;
 }
+
 /* Styling for LinkedIn and GitHub links */
 #linkedin, #github {
     display: flex;
@@ -63,7 +67,9 @@ nav ul li a:hover{
     transition: background 0.3s ease;
     padding: 0.5rem 1rem;
     border-radius: 5px;
+    border-style: solid;
 }
+
 #linkedin, #github {
     display: inline-flex;
     align-items: center;
@@ -76,6 +82,7 @@ nav ul li a:hover{
     border-radius: 5px;
     border-style: solid;
 }
+
 /* Adjust icon sizes */
 #linkedin img, #github img {
     width: 24px;  /* Set the desired width */
@@ -115,13 +122,16 @@ nav ul li a:hover{
         background-color: #050831 no-repeat center center/cover;
     }
 }
+
 .hero h1 {
     font-size: 3rem;
 }
+
 .hero p {
     font-size: 1.2rem;
     margin: 10px 0 20px;
 }
+
 /* Other Sections Background Image */
 #about, #skills, #education, #experience, #projects, #certificates, #contact, #footer {
     background-color: #050831;
@@ -130,170 +140,207 @@ nav ul li a:hover{
     background-repeat: no-repeat;
     padding: 50px 20px; /* Adjust padding for section spacing */
 }
+
 /* About page*/
 #about {
     padding: 10px
 }
+
 .about-container {
     display: flex;
     align-items: center;
     max-width: 1200px;
     margin: auto;
 }
+
 .about-text h3 {
     margin-top: 20px;
 }
+
 #about #title{
     text-align: left;
 }
+
 #about-text{
     margin-left: 25px;
     padding: 10px;
 }
+
 #about-text a{
     color: white;
     font-size: 18px;
     padding: 10px;
 }
+
 #about-text b{
     color: white;
     font-size: 17px;
 }
+
 #about_p{
     margin-top: 5px;
     font-size: 17px;
     color: white;
 }
+
 #about a{
     text-align: center;
     text-decoration: none;
 }
+
 #profilepic{
     width: 250px;
     height: 250px;
     border-radius: 50%;
 }
+
 #about h2{
     font-size: 30px;
     color: white;
 }
+
 #about h3{
     font-size: 25px;
     text-align: center;
 }
+
 /* Skills Page*/
 #skills {
     display: block; /* Display each category as a block */
     width: 100%; /* Ensure full width usage */
 }
+
 #skills h3,h4{
     color: white;
     text-align: left;
     font-size: 18px;
 }
+
 #pp img{
     width: 100px;
     height: 100px;
     border-radius: 30%;
 }
+
 #ts img{
     width: 100px;
     height: 100px;
     border-radius: 30%;
 }
+
 #db img{
     width: 100px;
     height: 100px;
     border-radius: 30%;
 }
+
 #pp,#ts,#db{
     list-style: none;
     display: flex;
     gap: 25px;
     padding: 15px;
 }
+
 #ts h4{
     text-align: center;
     font-size: 13px;
 }
+
 #db h4{
     text-align: center;
     font-size: 13px;
 }
+
 #pp h4{
     text-align: center;
     font-size: 13px;
 }
+
 /* Education Page*/
 #education h2{
     color: white;
 }
+
 #pb,#sjc,#ss{
     width: 100px;
     height: 100px;
     border-radius: 30%;
 }
+
 #degree,#inter,#ssc h3,p{
     color: white;
 }
+
 #degree,#inter,#ssc{
     display: flex;
     align-items: center;
     max-width: 1200px;
     margin: auto;
 }
+
 #education-text1,#education-text2,#education-text3{
     margin-left: 30px;
     padding: 15px;
 }
+
 /* Experience Page*/
 #experience h2{
     color: white;
 }
+
 .company{
     display: flex;
     align-items: center;
     max-width: 1200px;
     margin: auto;
 }
+
 #exp-text{
     margin-left: 30px;
     padding: 15px;
 }
+
 #exp-text ul li{
     color: white;
     list-style-type: disc;
 }
+
 #exp-text p{
    font-size: 18px;
 }
+
 #exp-text b{
     font-size: 17px;
     text-decoration: underline;
  }
+
 #company{
     width: 100px;
     height: 100px;
     border-radius: 30%;
 }
+
 /* Project Page*/
 /* General styling for the project section */
 #p-title{
     color: white;
     background-color: #050831;
 }
+
 .projects {
     display: flex;
     justify-content: space-between;
     flex-wrap: wrap;
     gap: 10px;
     align-items: center;
- 
+
     margin: auto;
 }
+
 #project h4{
     text-align: center;
 }
+
 .project-img {
     width: 450px;
     height: 300px;
@@ -301,15 +348,18 @@ nav ul li a:hover{
     cursor: pointer;
     border-radius: 9px;
 }
+
 /* Popup Card Styling */
 .popup-card {
     position: relative; /* To position scroll buttons */
 }
+
 .popup-card a{
     color: black;
     border-radius: 5px;
     border-color: black;
 }
+
 .popup-card {
     position: relative; 
     display: none;
@@ -326,117 +376,12 @@ nav ul li a:hover{
     max-height: 90vh; /* It can cover up to 90% of the viewport height */
     overflow-y: auto; /* Allows scrolling inside the popup */
 }
+
 .modal-background {
     display: none; /* Hidden by default */
     position: fixed;
     top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 999;
-}
-.popup-open .modal-background {
-    display: block;
-}
-.popup-images {
-    display: flex;
-    overflow-x: hidden;
-    padding: 10px 0;
-    width: 100%;
-}
-.popup-image {
-    min-width: 100%;
-    height: auto; /* Maintain aspect ratio */
-    border-radius: 10px;
-}
-.scroll-button {
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-    background-color: rgba(255, 255, 255, 0.8);
-    border: none;
-    font-size: 24px;
-    cursor: pointer;
-    z-index: 1000;
-    padding: 10px;
-    border-radius: 50%;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.3);
-}
-.left-scroll {
-    left: 10px; /* Position left arrow */
-}
-
-.right-scroll {
-    right: 10px; /* Position right arrow */
-}
-.popup-images img:hover {
-    transform: scale(1.1); /* Slight zoom on hover */
-}
-/* Image inside the popup */
-.popup-card img {
-    max-width: 100%;  /* Image will scale to fit the width of the container */
-    height: auto;     /* Maintain aspect ratio */
-    margin-bottom: 20px;
-}
-/* Popup content - h4 and text */
-.popup-card h4 {
-    margin-top: 0;
-    font-size: 1.8rem;
-    text-align: center;
-}
-.open-popup h4{
-    color: white;
-    text-decoration: underline;
-    text-align: center;
-}
-#p1-text{
-    color: black;
-}
-.popup-card p {
-    font-size: 1.1rem;
-    line-height: 1.6;
-    color: black;
-}
-
-.popup-card ul {
-    list-style: none;
-    padding-left: 0;
-    font-size: 1rem;
-}
-
-.popup-card ul li {
-    margin-bottom: 10px;
-}
-.popup-card h4{
-    color: black;
-}
-#p1-ul,#p2-ul,#p3-ul,#p4-ul,#p5-ul,#p6-ul,#p7-ul{
-    list-style-type: disc;
-}
-#p1,#p2,#p3,#p4,#p5,#p6,#p7 h4{
-    color: black;
-}
-/* Close Button */
-.close-popup {
-    background-color: #f44336;
-    color: white;
-    border: none;
-    padding: 10px;
-    cursor: pointer;
-    border-radius: 5px;
-    width: 100px;
-    margin: 20px auto;
-    display: block;
-    font-size: 1rem;
-    text-align: center;
-}
-
-/* Dark background when popup is open */
-.modal-background {
-    position: fixed;
-    top: 0;
-    left: 0;
+ left: 0;
     width: 100%;
     height: 100%;
     background: rgba(0, 0, 0, 0.6);
@@ -480,6 +425,7 @@ body.popup-open {
 .certificates h2{
     color: white;
 }  
+
 .certificate-container {
     display: flex;
     align-items: center;
@@ -493,6 +439,7 @@ body.popup-open {
     margin: 0 auto; /* Center container */
     cursor: grab; /* Add grab cursor for better UX */
 }
+
 .certificate-container::-webkit-scrollbar {
     display: none; /* Hide scrollbar for Chrome, Safari, and Edge */
 }
@@ -518,6 +465,7 @@ body.popup-open {
     border-radius: 5px;
     object-fit: cover; /* Ensure images are contained within the bounds */
 }
+
 .left-scroll2 {
     left: 10px; /* Position left arrow */
 }
@@ -525,13 +473,16 @@ body.popup-open {
 .right-scroll2 {
     right: 10px; /* Position right arrow */
 }
+
 /* Contact Section */
 #contact {
     padding: 4rem 2rem;
 }
+
 #contact h2,a{
     color: white;
 }
+
 form {
     color: white;
     max-width: 600px;
@@ -539,43 +490,342 @@ form {
     display: flex;
     flex-direction: column;
 }
+
 form label {
     margin-bottom: 5px;
 }
+
 form input, form textarea {
     margin-bottom: 15px;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 15px;
 }
+
 #submit{  
     width: 200px;
     border-radius: 9px;
     height: 25px;
     align-items: center;
 }
+
 .contact h1{
     color: white;
     font-size: xx-large;
 }
+
 /* Footer */
 footer {
     text-align: center;
     padding: 2rem;
     color: #fff;
 }
+
 footer h1{
     color: white;
 }
+
 footer a{
     text-decoration: none;
 }
+
 footer li{
     list-style: none;
 }
+
 footer img{
     width: 30px;  
     height: 30px;
     margin-right: 10px;
     vertical-align: middle;
+}
+
+/* Responsive Design */
+
+@media (max-width: 1200px) {
+    .hero {
+        height: 80vh;
+    }
+    .hero h1 {
+        font-size: 2.5rem;
+    }
+    .hero p {
+        font-size: 1rem;
+    }
+    #about, #skills, #education, #experience, #projects, #certificates, #contact, #footer {
+        padding: 20px;
+    }
+    .about-container {
+        flex-direction: column;
+    }
+    #about-text {
+        margin-left: 0;
+    }
+    #profilepic {
+        width: 200px;
+        height: 200px;
+    }
+    #skills h3, h4 {
+        font-size: 16px;
+    }
+    #pp img, #ts img, #db img {
+        width: 80px;
+        height: 80px;
+    }
+    #education h2 {
+        font-size: 24px;
+    }
+    #degree, #inter, #ssc {
+        flex-direction: column;
+    }
+    #education-text1, #education-text2, #education-text3 {
+        margin-left: 0;
+    }
+    #experience h2 {
+        font-size: 24px;
+    }
+    .company {
+        flex-direction: column;
+    }
+    #exp-text {
+        margin-left: 0;
+    }
+    #project h4 {
+        font-size: 18px;
+    }
+    .project-img {
+        width: 300px;
+        height: 200px;
+    }
+    .popup-card {
+        max-width: 70vw;
+    }
+    .popup-card h4 {
+        font-size: 1.2rem;
+    }
+    .popup-card p {
+        font-size: 0.9rem;
+    }
+    .popup-card ul {
+        font-size: 0.8rem;
+    }
+    .close-popup {
+        font-size: 0.8rem;
+    }
+    .popup-images img {
+        max-width: 120px;
+    }
+    .certificate-container img {
+        max-width: 300px;
+    }
+    #contact h2 {
+        font-size: 20px;
+    }
+    form {
+        max-width: 400px;
+    }
+    form input, form textarea {
+        padding: 8px;
+    }
+    #submit {
+        width: 150px;
+    }
+    footer {
+        padding: 1rem;
+    }
+    footer h1 {
+        font-size: 18px;
+    }
+}
+
+@media (max-width: 768px) {
+    .hero {
+        height: 60vh;
+    }
+    .hero h1 {
+        font-size: 2rem;
+    }
+    .hero p {
+        font-size: 0.8rem;
+    }
+    #about, #skills, #education, #experience, #projects, #certificates, #contact, #footer {
+        padding: 10px;
+    }
+    .about-container {
+        flex-direction: column;
+    }
+    #about-text {
+        margin-left: 0;
+    }
+    #profilepic {
+        width: 150px;
+        height: 150px;
+    }
+    #skills h3, h4 {
+        font-size: 14px;
+    }
+    #pp img, #ts img, #db img {
+        width: 60px;
+        height: 60px;
+    }
+    #education h2 {
+        font-size: 20px;
+    }
+    #degree, #inter, #ssc {
+        flex-direction: column;
+    }
+    #education-text1, #education-text2, #education-text3 {
+        margin-left: 0;
+    }
+    #experience h2 {
+        font-size: 20px;
+    }
+    .company {
+        flex-direction: column;
+    }
+    #exp-text {
+        margin-left: 0;
+    }
+    #project h4 {
+        font-size: 16px;
+    }
+    .project-img {
+        width: 200px;
+        height: 150px;
+    }
+    .popup-card {
+        max-width: 60vw;
+    }
+    .popup-card h4 {
+        font-size: 1rem;
+    }
+    .popup-card p {
+        font-size: 0.7rem;
+    }
+    .popup-card ul {
+        font-size: 0.6rem;
+    }
+    .close-popup {
+        font-size: 0.6rem;
+    }
+    .popup-images img {
+        max-width: 100px;
+    }
+    .certificate-container img {
+        max-width: 200px;
+    }
+    #contact h2 {
+        font-size: 18px;
+    }
+    form {
+        max-width: 300px;
+    }
+    form input, form textarea {
+        padding: 6px;
+    }
+    #submit {
+        width: 100px;
+    }
+    footer {
+        padding: 0.5rem;
+    }
+    footer h1 {
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero {
+        height: 40vh;
+    }
+    .hero h1 {
+        font-size: 1.5rem;
+    }
+    .hero p {
+        font-size: 0.6rem;
+    }
+    #about, #skills, #education, #experience, #projects, #certificates, #contact, #footer {
+        padding: 5px;
+    }
+    .about-container {
+        flex-direction: column;
+    }
+    #about-text {
+        margin-left: 0;
+    }
+    #profilepic {
+        width: 100px;
+        height: 100px;
+    }
+    #skills h3, h4 {
+        font-size: 12px;
+    }
+    #pp img, #ts img, #db img {
+        width: 40px;
+        height: 40px;
+    }
+    #education h2 {
+        font-size: 18px;
+    }
+    #degree, #inter, #ssc {
+        flex-direction: column;
+    }
+    #education-text1, #education-text2, #education-text3 {
+        margin-left: 0;
+    }
+    #experience h2 {
+        font-size: 18px;
+    }
+    .company {
+        flex-direction: column;
+    }
+    #exp-text {
+        margin-left: 0;
+    }
+    #project h4 {
+        font-size: 14px;
+    }
+    .project-img {
+        width: 150px;
+        height: 100px;
+    }
+    .popup-card {
+        max-width: 50vw;
+    }
+    .popup-card h4 {
+        font-size: 0.8rem;
+    }
+    .popup-card p {
+        font-size: 0.5rem;
+    }
+    .popup-card ul {
+        font-size: 0.4rem;
+    }
+    .close-popup {
+        font-size: 0.4rem;
+    }
+    .popup-images img {
+        max-width: 80px;
+    }
+    .certificate-container img {
+        max-width: 150px;
+    }
+    #contact h2 {
+        font-size: 16px;
+    }
+    form {
+        max-width: 200px;
+    }
+    form input, form textarea {
+        padding: 4px;
+    }
+    #submit {
+        width: 80px;
+    }
+    footer {
+        padding: 0.2rem;
+    }
+    footer h1 {
+        font-size: 14px;
+    }
 }
