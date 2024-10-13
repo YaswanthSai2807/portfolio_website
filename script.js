@@ -5,6 +5,14 @@ const popups = document.querySelectorAll('.popup-card');
 const modalBackground = document.createElement('div');
 modalBackground.classList.add('modal-background');
 document.body.appendChild(modalBackground);
+document.addEventListener('DOMContentLoaded', () => {
+    const hamburger = document.getElementById('hamburger');
+    const navLinks = document.getElementById('nav-links');
+
+    hamburger.addEventListener('click', () => {
+        navLinks.classList.toggle('show');
+    });
+});
 
 // Function to open the popup
 openPopupLinks.forEach(link => {

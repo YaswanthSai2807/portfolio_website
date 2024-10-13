@@ -228,21 +228,21 @@ nav ul li a:hover{
 #education h2{
     color: white;
 }
-#pb,#sjc,#ss{
+#pb,#sjc,#ss,#nss{
     width: 100px;
     height: 100px;
     border-radius: 30%;
 }
-#degree,#inter,#ssc h3,p{
+#degree,#inter,#ssc,#extra-a h3,p{
     color: white;
 }
-#degree,#inter,#ssc{
+#degree,#inter,#ssc,#extra-a{
     display: flex;
     align-items: center;
     max-width: 1200px;
     margin: auto;
 }
-#education-text1,#education-text2,#education-text3{
+#education-text1,#education-text2,#education-text3,#nss-activity{
     margin-left: 30px;
     padding: 15px;
 }
