@@ -1,638 +1,705 @@
+<!DOCTYPE html>
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <script src="script.js" defer></script>
-    <title>Yaswanth Sai</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Yaswanth Sai | Data Analyst & BI</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+    <!-- Icons -->
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" rel="stylesheet">
+
+    <style>
+        :root {
+            --bg: #020617;
+            --card: #0f172a;
+            --primary: #3b82f6;
+            --accent: #22d3ee;
+            --text: #e5e7eb;
+            --muted: #9ca3af;
+            --border: #1e293b;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            overflow-x: hidden
+        }
+
+        /* MOVING BACKGROUND */
+        .bg-animate {
+            position: fixed;
+            inset: 0;
+            background:
+                radial-gradient(circle at 20% 30%, rgba(59, 130, 246, .15), transparent 40%),
+                radial-gradient(circle at 80% 60%, rgba(34, 211, 238, .12), transparent 45%);
+            animation: bgMove 18s infinite alternate ease-in-out;
+            z-index: -1
+        }
+
+        @keyframes bgMove {
+            0% {
+                transform: translate(0, 0)
+            }
+
+            100% {
+                transform: translate(-40px, -60px)
+            }
+        }
+
+        a {
+            color: var(--primary);
+            text-decoration: none
+        }
+
+        /* NAVBAR */
+        header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            z-index: 100;
+            background: rgba(2, 6, 23, .85);
+            backdrop-filter: blur(14px);
+            border-bottom: 1px solid var(--border)
+        }
+
+        nav {
+            max-width: 1100px;
+            margin: auto;
+            padding: 16px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center
+        }
+
+        nav b {
+            font-size: 20px;
+            font-weight: 700;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        nav ul {
+            display: flex;
+            gap: 28px;
+            list-style: none
+        }
+
+        nav ul a {
+            color: var(--text);
+            font-weight: 500
+        }
+
+        nav ul a i {
+            margin-right: 6px;
+            color: var(--accent)
+        }
+
+        .menu-toggle {
+            display: none;
+            font-size: 26px;
+            cursor: pointer
+        }
+
+        section {
+            max-width: 1100px;
+            margin: auto;
+            padding: 120px 20px
+        }
+
+        /* HERO */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center
+        }
+
+        .hero h1 {
+            font-size: 54px;
+            line-height: 1.2
+        }
+
+        .hero span {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent
+        }
+
+        .hero p {
+            font-size: 19px;
+            color: var(--muted);
+            max-width: 600px;
+            margin-top: 12px
+        }
+
+        .cta {
+            margin-top: 32px;
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap
+        }
+
+        .btn {
+            padding: 14px 22px;
+            border-radius: 14px;
+            font-weight: 600;
+            display: flex;
+            align-items: center;
+            gap: 10px
+        }
+
+        .btn.primary {
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            color: #020617
+        }
+
+        .btn.outline {
+            border: 1px solid var(--border);
+            color: var(--text)
+        }
+
+        /* TITLES */
+        h2 {
+            font-size: 34px;
+            margin-bottom: 36px
+        }
+
+        /* ABOUT */
+        .about-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 36px
+        }
+
+        .about-grid img {
+            width: 100%;
+            border-radius: 20px;
+            border: 1px solid var(--border)
+        }
+
+        /* SKILLS */
+        .skills {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+            gap: 18px
+        }
+
+        .skill {
+            background: linear-gradient(180deg, var(--card), #020617);
+            padding: 22px;
+            border-radius: 18px;
+            text-align: center;
+            border: 1px solid var(--border)
+        }
+
+        .skill i {
+            font-size: 28px;
+            color: var(--accent);
+            margin-bottom: 10px
+        }
+
+        /* EXPERIENCE */
+        .experience {
+            display: flex;
+            flex-direction: column;
+            gap: 28px
+        }
+
+        .card {
+            background: linear-gradient(180deg, var(--card), #020617);
+            border-radius: 22px;
+            padding: 26px;
+            border: 1px solid var(--border)
+        }
+
+        .card h3 i {
+            color: var(--accent);
+            margin-right: 8px
+        }
+
+        .card span {
+            color: var(--muted);
+            font-size: 14px
+        }
+
+        .card ul {
+            margin-top: 14px;
+            padding-left: 20px
+        }
+
+        /* PROJECTS */
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px
+        }
+
+        .project {
+            background: linear-gradient(180deg, var(--card), #020617);
+            padding: 26px;
+            border-radius: 22px;
+            border: 1px solid var(--border)
+        }
+
+        .project i {
+            font-size: 30px;
+            color: var(--accent);
+            margin-bottom: 12px
+        }
+
+        /* CONTACT */
+        .contact i {
+            color: var(--accent);
+            margin-right: 10px
+        }
+
+        .contact p {
+            font-size: 18px;
+            margin-bottom: 12px
+        }
+
+        footer {
+            text-align: center;
+            padding: 40px;
+            color: var(--muted);
+            border-top: 1px solid var(--border)
+        }
+
+        /* MOBILE */
+        @media(max-width:768px) {
+            nav ul {
+                position: absolute;
+                top: 70px;
+                right: 20px;
+                background: var(--card);
+                flex-direction: column;
+                gap: 18px;
+                padding: 22px;
+                border-radius: 20px;
+                border: 1px solid var(--border);
+                display: none
+            }
+
+            nav ul.show {
+                display: flex
+            }
+
+            .menu-toggle {
+                display: block
+            }
+
+            .hero h1 {
+                font-size: 38px
+            }
+
+            .about-grid {
+                grid-template-columns: 1fr
+            }
+        }
+
+        /* MODAL */
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0, 0, 0, .7);
+            backdrop-filter: blur(4px);
+            z-index: 999;
+            align-items: center;
+            justify-content: center
+        }
+
+        .modal-content {
+            background: linear-gradient(180deg, var(--card), #020617);
+            padding: 28px;
+            border-radius: 20px;
+            max-width: 520px;
+            width: 90%;
+            border: 1px solid var(--border);
+            animation: fadeUp .35s ease
+        }
+
+        .modal-content h3 {
+            margin-bottom: 12px
+        }
+
+        .modal-content p {
+            color: var(--muted);
+            margin-bottom: 16px
+        }
+
+        .modal-content a {
+            font-weight: 600
+        }
+
+        .close {
+            float: right;
+            font-size: 24px;
+            cursor: pointer;
+            color: var(--accent)
+        }
+
+        /* CERTIFICATIONS */
+        .certifications {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 22px;
+        }
+
+        .cert-card {
+            background: linear-gradient(180deg, var(--card), #020617);
+            padding: 24px;
+            border-radius: 22px;
+            border: 1px solid var(--border);
+            transition: transform .3s, box-shadow .3s;
+        }
+
+        .cert-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 14px 40px rgba(0, 0, 0, .45);
+        }
+
+        .cert-card i {
+            font-size: 28px;
+            color: var(--accent);
+            margin-bottom: 12px;
+        }
+
+        .cert-card h4 {
+            margin-bottom: 6px;
+            font-size: 18px;
+        }
+
+        .cert-card span {
+            font-size: 14px;
+            color: var(--muted);
+        }
+
+        .cert-card a {
+            display: inline-block;
+            margin-top: 10px;
+            font-weight: 600;
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px)
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0)
+            }
+        }
+    </style>
 </head>
 
 <body>
-    <!-- The video -->
-    <video autoplay muted loop id="myVideo">
-        <source src="img/bg.mp4" type="video/mp4">
-        The video could not be play in browser
-    </video>
 
-    <!-- Navigation Bar -->
+    <div class="bg-animate"></div>
+
     <header>
         <nav>
             <b>Yaswanth Sai</b>
-            <div class="hamburger" id="hamburger">
-                <div></div>
-                <div></div>
-                <div></div>
-            </div>
-            <ul id="nav-links">
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="https://1drv.ms/b/c/50987af2e43830b2/Ed7m3eu-nH5KrfsLTHmaM_sBPAcjNkqsd8DjaDiO8X2h3Q?e=IhgAhN"
-                        target="_blank">Resume</a></li>
-                <li><a href="#certificates">Certificates</a></li>
-                <li><a href="#contact">Contact</a></li>
+            <div class="menu-toggle" id="menu">☰</div>
+            <ul id="navLinks">
+                <li><a href="#about"><i class="fa-solid fa-user"></i>About</a></li>
+                <li><a href="#skills"><i class="fa-solid fa-laptop-code"></i>Skills</a></li>
+                <li><a href="#experience"><i class="fa-solid fa-briefcase"></i>Experience</a></li>
+                <li><a href="#projects"><i class="fa-solid fa-diagram-project"></i>Projects</a></li>
+                <li><a href="#contact"><i class="fa-solid fa-envelope"></i>Contact</a></li>
             </ul>
         </nav>
     </header>
 
-    <section class="hero" id="hero">
-        <div class="hero-content">
-            <h1>Hello, I'm Yaswanth Sai</h1>
-            <p>Data Analyst | Power BI Expert | Excel Specialist</p>
-            <div id="social-links">
-                <a href="https://www.linkedin.com/in/abbaraju-v-n-s-yaswanth-sai-b6b660234/" id="linkedin"
-                    target="_blank">
-                    <img src="img/linkedin.png" alt="">LinkedIn Profile
-                </a>
-                <a href="https://github.com/YaswanthSai2807" id="github" target="_blank">
-                    <img src="img/github.png" alt="">GitHub Profile
-                </a>
+    <section class="hero">
+        <div>
+            <h1>Hi, I’m <span>Yaswanth Sai</span></h1>
+            <p>Data Analyst & BI Professional focused on Power BI, Excel, SQL, and Workforce Analytics.</p>
+            <div class="cta">
+                <a class="btn primary" href="#projects"><i class="fa-solid fa-chart-line"></i>View Projects</a>
+                <a class="btn outline" href="https://www.linkedin.com/in/abbaraju-v-n-s-yaswanth-sai-b6b660234/"
+                    target="_blank"><i class="fa-brands fa-linkedin"></i>LinkedIn</a>
+                <a class="btn outline" href="https://github.com/YaswanthSai2807" target="_blank"><i
+                        class="fa-brands fa-github"></i>Git-Hub</a>
             </div>
         </div>
     </section>
 
-    <!--Skills&About-->
-    <section class="container" id="about">
-        <h2 id="title">About Me</h2>
-        <div class="about-container">
-            <img src="img/avatar.png" alt="profilepic" id="profilepic">
-            <div class="about-text" id="about-text">
-                <h2>Abbaraju V N S Yaswanth Sai</h2>
-                <b>Email:</b><a href="mailto:saiyaswanthabbaraju@gmail.com">saiyaswanthabbaraju@gmail.com</a><br>
-                <b>Mobile:</b><a href="tel:+91 8247049609">+91 8247049609</a>
-
-                <p id="about_p">Passionate data analyst with a strong background in data visualization, cleaning, and
-                    analysis. My goal is to provide actionable insights that help businesses make data-driven decisions.
-                    Driven to learn quickly, advance computer proficiency and training in industry operations. Solid
-                    background in field and office settings supporting team needs. Flexible and hardworking team player
-                    focused on boosting productivity and performance with conscientious and detail-oriented approaches.
-                </p>
-            </div>
-        </div>
-        <br>
-        <h2>Skills</h2>
-        <section id="skills">
-            <h3>Tools & Softwares</h3>
-            <ul id="ts">
-                <li>
-                    <img src="img/powerbi.png" alt="powerbi">
-                    <h4>Power BI</h4>
-                </li>
-                <li>
-                    <img src="img/tableau.png" alt="tableau">
-                    <h4>Tableau</h4>
-                </li>
-                <li>
-                    <img src="img/excel.png" alt="excel">
-                    <h4>Microsoft Excel</h4>
-                </li>
-                <li>
-                    <img src="img/sheets.png" alt="sheets">
-                    <h4>Google Sheets</h4>
-                </li>
-                <li>
-                    <img src="img/genai.webp" alt="genai">
-                    <h4>GEN AI</h4>
-                </li>
-            </ul>
-            <h3>Database</h3>
-            <ul id="db">
-                <li>
-                    <img src="img/sql.jpeg" alt="sql">
-                    <h4>SQL</h4>
-                </li>
-            </ul>
-            <h3>Programming Languages</h3>
-            <ul id="pp">
-                <li>
-                    <img src="img/python.jpeg" alt="python">
-                    <h4>Python</h4>
-                </li>
-                <li>
-                    <img src="img/html.jpg" alt="Html">
-                    <h4>HTML</h4>
-                </li>
-            </ul>
-        </section>
+    <section id="about">
+        <h2>About Me</h2>
+        <p>
+            I am a Data Analyst with strong experience in workforce analytics, business intelligence, and dashboard
+            automation.
+            My expertise lies in translating complex datasets into clear, actionable insights that help organizations
+            improve
+            operational efficiency, optimize resources, and make data-driven decisions.
+            <br><br>
+            I have hands-on experience with Power BI, Excel, SQL, and Python, and I actively work on analytical projects
+            involving
+            sales analysis, HR analytics, financial analysis, and forecasting. I enjoy solving real-world business
+            problems
+            through data storytelling and visualization.
+        </p>
     </section>
 
-    <!--Education-->
-    <section id="education">
-        <h2>Education</h2>
-        <div id="degree">
-            <img src="img/pbsc.jpg" alt="pbsc" id="pb">
-            <div id="education-text1">
-                <h3>PB Siddhartha College of Arts and Science</h3>
-                <p>Bachelors of Science</p>
-                <p>Computer Applications, Electronics and Mathematics</p>
-                <p>October 2021 - May 2024</p>
-                <p><b>GPA </b> : 7.77</p>
-            </div>
-        </div>
-
-        <div id="inter">
-            <img src="img/inter.jpg" alt="Sarda Junior College" id="sjc">
-            <div id="education-text2">
-                <h3>Sarada Junior College</h3>
-                <p>MPC</p>
-                <p>June 2019 - March 2021</p>
-                <p><b>GPA </b>: 8.73</p>
-            </div>
-        </div>
-
-        <div id="ssc">
-            <img src="img/ssc.jpeg" alt="Siddhartha" id="ss">
-            <div id="education-text3">
-                <h3>Siddhartha English Medium High School</h3>
-                <p>SSC</p>
-                <p>March 2018 - March 2019</p>
-                <p><b>GPA </b> : 8.8</p>
-            </div>
-        </div>
-        <h2>Extracurricular Activities</h2>
-        <div id="extra-a">
-            <img src="img/nss.jpg" alt="nss" id="nss">
-            <div id="nss-activity">
-                <h3>National Servive Scheme</h3>
-                <p>NSS Volunteer</p>
-                <p><span>College :</span> PB Siddhartha College of Arts and Science</p>
-                <p><span>University :</span> Krishna University</p>
-                <p><span>Duration :</span> November 2021 - February 2024</p>
-            </div>
+    <section id="skills">
+        <h2>Core Skills</h2>
+        <div class="skills">
+            <div class="skill"><i class="fa-solid fa-chart-pie"></i><br>Power BI & DAX</div>
+            <div class="skill"><i class="fa-solid fa-table"></i><br>Excel</div>
+            <div class="skill"><i class="fa-solid fa-database"></i><br>SQL</div>
+            <div class="skill"><i class="fa-brands fa-python"></i><br>Python</div>
+            <div class="skill"><i class="fa-solid fa-chart-simple"></i><br>Tableau</div>
+            <div class="skill"><i class="fa-solid fa-clock"></i><br>Forecasting</div>
         </div>
     </section>
 
-    <!--Experience-->
     <section id="experience">
         <h2>Experience</h2>
-        <div class="company">
-            <img src="img/company.jpg" alt="Datumn" id="company">
-            <div id="exp-text">
-                <p>Power BI Intern</p>
-                <p>Datumn Cybertech India Pvt Ltd</p>
-                <p>February 2024 - May 2024</p>
-                <p><b>Description:</b></p>
-                <ul>
-                    <li>
-                        Built the data and reporting infrastructure using Power BI, providing real-time insights into
-                        product performance, marketing funnels, and business KPIs.
-                    </li>
-                    <li>
-                        Increased communication efficiency by 25% through effective data presentations.
-                    </li>
-                    <li>
-                        Enhanced Power BI skills by 40% through hands-on project work and continuous learning.
-                    </li>
-                </ul>
-            </div>
-        </div>
+        <div class="experience">
 
-        <div class="company">
-            <img src="img/shr_softek.png" alt="SHR" id="company">
-            <div id="exp-text">
-                <p>Gen AI Intern</p>
-                <p>SHR SOFTEK(OPC) Pvt Ltd</p>
-                <p>October 2024 - January 2025</p>
-                <p><b>Description:</b></p>
+            <div class="card">
+                <h3><i class="fa-solid fa-building"></i> Teleperformance (TP)</h3>
+                <span>Hyderabad, India | Jan 2025 – Present</span>
                 <ul>
-                    <li>
-                        Developed web pages and automated processes using Generative AI, enhancing real-time product
-                        insights.
-                    </li>
-                    <li>
-                        Gained hands-on experience in GenAI and web development through project-based learning.
-                    </li>
+                    <li><strong>WFM Real Time Analyst (RTA)</strong> | Dec 2025 – Present</li>
+                    <ul>
+                        <li>Built and maintained automated workforce dashboards, improving reporting efficiency.
+                        </li>
+                        <li>Monitored real-time KPIs including schedule adherence, productivity, and capacity
+                            utilization.</li>
+                        <li>Automated workforce performance reporting, reducing manual efforts.
+                        </li>
+                        <li>Delivered actionable insights to support resource optimization and operational
+                            decision-making.</li>
+                    </ul>
+                    <br>
+                    <li><strong>Analyst</strong> | Jan 2025 – Dec 2025</li>
+                    <ul>
+                        <li>Analyzed and validated large datasets to ensure accuracy, consistency, and compliance with
+                            quality guidelines.</li>
+                        <li>Assessed and rated data quality to improve relevance and operational standards.</li>
+                        <li>Supported teams by identifying data discrepancies and improvement opportunities.</li>
+                    </ul>
                 </ul>
             </div>
-        </div>
-        <div class="company">
-            <img src="img/tp.jpeg" alt="TP" id="company">
-            <div id="exp-text">
-                <p>Analyst</p>
-                <p>Teleperformance</p>
-                <p>January 2025 - Present</p>
-                <p><b>Description:</b></p>
+
+            <div class="card">
+                <h3><i class="fa-solid fa-robot"></i> SHR Softek (OPC) Pvt Ltd</h3>
+                <span>Generative BI Intern | Oct 2024 – Jan 2025</span>
                 <ul>
-                    <li>
-                        Analyzed and evaluated data to ensure accuracy and consistency.
-                    </li>
-                    <li>
-                        Assessed and rated data based on predefined guidelines to improve quality and relevance.
-                    </li>
-                    <li>
-                        Developed attention to detail and analytical skills through continuous data assessment.
-                    </li>
+                    <li>Developed web pages and automated workflows using <strong>Generative AI</strong> to enhance
+                        real-time product insights.</li>
+                    <li>Assisted in building AI-driven analytics solutions and reporting components.</li>
+                    <li>Gained hands-on experience with GenAI tools and automation techniques.</li>
                 </ul>
             </div>
+
+            <div class="card">
+                <h3><i class="fa-solid fa-chart-line"></i> Datum Cybertech India Pvt Ltd</h3>
+                <span>Power BI Intern | Feb 2024 – May 2024</span>
+                <ul>
+                    <li>Designed and developed real-time <strong>Power BI dashboards</strong> for product and marketing
+                        KPIs.</li>
+                    <li>Optimized data models and DAX measures, improving reporting efficiency by <strong>25%</strong>.
+                    </li>
+                    <li>Collaborated with stakeholders to deliver actionable business insights.</li>
+                </ul>
+            </div>
+
         </div>
     </section>
 
-    <!--Projects-->
-    <h2 id="p-title">Projects</h2>
-    <section class="projects" id="projects">
-        <!-- Project 1 -->
-        <div class="project">
-            <a href="#" class="open-popup" data-popup="p1">
-                <img src="img/bankstatement.JPG" alt="bankstatement" class="project-img">
-                <h4> Bank Statement Analysis </h4>
-            </a>
-        </div>
-
-        <!-- Project 2 -->
-        <div class="project">
-            <a href="#" class="open-popup" data-popup="p2">
-                <img src="img/hr.jpg" alt="HR Dashboard" class="project-img">
-                <h4> HR Analysis Dashboard </h4>
-            </a>
-        </div>
-
-        <!-- Project 3 -->
-        <div class="project">
-            <a href="#" class="open-popup" data-popup="p3">
-                <img src="img/sales.jpg" alt="FullCart Store" class="project-img">
-                <h4> Full Cart Store Sales Analysis </h4>
-            </a>
-        </div>
-
-        <!-- Project 4 -->
-        <div class="project">
-            <a href="#" class="open-popup" data-popup="p4">
-                <img src="img/salestableau.png" alt="tableau-project" class="project-img">
-                <h4> Sales Analysis using Tableau </h4>
-            </a>
-        </div>
-
-        <!-- Project 5 -->
-        <div class="project">
-            <a href="#" class="open-popup" data-popup="p5">
-                <img src="img/energy/Slide3.JPG" alt="energy-project" class="project-img">
-                <h4> Energy Consumption Analysis Dashboard </h4>
-            </a>
-        </div>
-
-        <!-- Project 6 -->
-        <div class="project">
-            <a href="#" class="open-popup" data-popup="p6">
-                <img src="img/customer/Slide2.JPG" alt="energy-project" class="project-img">
-                <h4> Customer Churn Analysis Dashboard </h4>
-            </a>
-        </div>
-
-        <!-- Project 7 -->
-        <div class="project">
-            <a href="#" class="open-popup" data-popup="p7">
-                <img src="img/zepto/Zepto Analysis_page-0001.JPG" alt="web-project" class="project-img">
-                <h4> Zepto Sales Analysis Dashboard </h4>
-            </a>
-        </div>
-
-        <div class="project">
-            <a href="#" class="open-popup" data-popup="p8">
-                <img src="img/portfolio.png" alt="web-project" class="project-img">
-                <h4> Portfolio Website </h4>
-            </a>
-        </div>
-
-        <!-- Popup Cards -->
-        <div class="popup-card" id="p1">
-            <h4>Bank Statement Analysis</h4>
-            <button class="scroll-button left-scroll">&#10094;</button> <!-- Left Arrow -->
-            <div class="popup-images" style="display: flex; overflow: hidden; width: 100%;">
-                <img src="img/bank/Slide2.JPG" alt="slide-2" class="popup-image" style="min-width: 100%;"> <br>
-                <img src="img/bank/Slide3.JPG" alt="slide-3" class="popup-image" style="min-width: 100%;">
-                <img src="img/bank/Slide4.JPG" alt="slide-4" class="popup-image" style="min-width: 100%;">
-                <img src="img/bank/Slide5.JPG" alt="slide-5" class="popup-image" style="min-width: 100%;">
-                <img src="img/bank/Slide6.JPG" alt="slide-6" class="popup-image" style="min-width: 100%;">
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project" onclick="openModal('p1')">
+                <i class="fa-solid fa-cart-shopping"></i><br>Zepto Sales Dashboard
             </div>
 
-            <button class="scroll-button right-scroll">&#10095;</button> <!-- Right Arrow -->
-            <p>📊 Excited to share my latest project on Bank Statement Analysis using Power BI! 💼 <br>
-
-                In this project, I utilized Power BI to dive deep into financial data extracted from bank statements,
-                offering valuable insights for effective financial management. From visualizing cash flow trends to
-                identifying spending patterns, this analysis empowers businesses to make informed decisions and optimize
-                their financial strategies.</p>
-            <br>Key Highlights:
-            <br>🔍 Comprehensive analysis of income and expenditure
-            <br>📈 Visualization of cash flow trends over time 💡 Identification of potential cost-saving opportunities
-            <br>📊 Creation of interactive dashboards for intuitive data exploration
-            <br>This project showcases my proficiency in data analysis, visualization, and financial acumen,
-            demonstrating my ability to leverage technology to drive strategic decision-making.
-            </p>
-            <b>Tools:</b>
-            <ul id="p1-ul">
-                <li>Microsoft Power BI</li>
-                <li>Python (Programming Language)</li>
-                <li>Data Visualization</li>
-            </ul>
-            <a href="https://github.com/YaswanthSai2807/BankStatementAnalysis.git" target="_blank">Project Link</a>
-            <button class="close-popup">Close</button>
-        </div>
-
-        </div>
-
-        <div class="popup-card" id="p7">
-            <h4>Zepto Analysis Dashboard</h4>
-            <button class="scroll-button left-scroll">&#10094;</button> <!-- Left Arrow -->
-            <div class="popup-images">
-                <img src="img/zepto/Zepto Analysis_page-0001.JPG" class="popup-image" style="min-width: 100%;"
-                    alt="Zepto Analysis_page-0001">
+            <div class="project" onclick="openModal('p2')">
+                <i class="fa-solid fa-users"></i><br>HR Analytics Dashboard
             </div>
-            <button class="scroll-button right-scroll">&#10095;</button> <!-- Right Arrow -->
-            <p>🚀 Zepto Sales & Customer Insights Dashboard — Power BI Project
 
-                I recently worked on an interactive Power BI dashboard to analyze Zepto’s sales performance, customer
-                behavior, and product trends throughout the year.
-                <br>
-                <br>This project explores key metrics such as:
-                <br>💰 Total Sales — ₹4.14 Cr+
-                <br>🏷️ Category-wise Sales & Coupon Impact
-                <br>⭐ Average Product & Delivery Ratings
-                <br>📊 Transaction Success vs Failure Rates
-                <br>🗓️ Monthly Order Trends
-                <br>🔍 The dashboard allows dynamic filtering by Year, Category, Transaction Type, and Status, helping stakeholders quickly identify performance drivers and discount effectiveness.
-                <br>I designed this dashboard with a focus on clarity, storytelling, and visual consistency — blending KPIs, charts, and custom visuals for better business insights.
-
-            </p>
-            <b>Tools:</b>
-            <ul id="p5-ul">
-                <li>Microsoft Power BI</li>
-                <li>DAX</li>
-                <li>Data Modeling</li>
-                <li>Visualization Design</li>
-            </ul>
-            <a href="https://github.com/YaswanthSai2807/Zepto-Analysis.git" target="_blank">Project
-                Link</a>
-            <button class="close-popup">Close</button>
-
-        </div>
-
-        <div class="popup-card" id="p2">
-            <h4>HR Analysis Dashboard</h4>
-            <button class="scroll-button left-scroll">&#10094;</button> <!-- Left Arrow -->
-            <div class="popup-images">
-                <img src="img/hr/slide1 (1).jpg" class="popup-image" style="min-width: 100%;" alt="slide-1">
-                <img src="img/hr/slide2.jpg" class="popup-image" style="min-width: 100%;" alt="slide-2">
-                <img src="img/hr/slide3.jpg" class="popup-image" style="min-width: 100%;" alt="slide-3">
-                <img src="img/hr/slide4.jpg" class="popup-image" style="min-width: 100%;" alt="slide-4">
+            <div class="project" onclick="openModal('p3')">
+                <i class="fa-solid fa-wallet"></i><br>Bank Statement Analysis
             </div>
-            <button class="scroll-button right-scroll">&#10095;</button> <!-- Right Arrow -->
-            <p>🔍 Excited to showcase my latest project: HR Analysis Dashboard using Power BI! 👥📊<br>
 
-                In this project, I developed an interactive and comprehensive HR Analysis Dashboard to provide valuable
-                insights into workforce data. By leveraging Power BI, I transformed raw HR data into meaningful
-                visualizations that help organizations make data-driven decisions.
-
-                <br>Key Features:
-                <br>📈 Employee demographics and diversity analysis
-                <br>🕒 Attrition and retention trends
-                <br>📊 Performance metrics and productivity analysis
-                <br>📅 Attendance and leave management
-                <br>🏆 Employee satisfaction and engagement metrics
-
-                <br>This dashboard empowers HR teams to identify trends, monitor key metrics, and implement strategies
-                to improve workforce management and employee satisfaction.
-
-                <br>Explore the dashboard and discover how data visualization can transform HR analytics
-            </p>
-            <b>Tools:</b>
-            <ul id="p2-ul">
-                <li>Microsoft Power BI</li>
-                <li>Data Modeling</li>
-                <li>Data Visualization</li>
-            </ul>
-            <a href="https://github.com/YaswanthSai2807/HR-Analysis.git" target="_blank">Project Link</a>
-            <button class="close-popup">Close</button>
-
-        </div>
-        <div class="popup-card" id="p3">
-            <h4>Full Cart Store Sales Analysis</h4>
-            <div class="popup-images">
-                <img src="img/sales.jpg" alt="sales">
+            <div class="project" onclick="openModal('p4')">
+                <i class="fa-solid fa-bolt"></i><br>Energy Consumption Analysis
             </div>
-            <p>I conducted an in-depth sales analysis for FullCart using Google Sheets, developing a comprehensive
+
+            <div class="project" onclick="openModal('p5')">
+                <i class="fas fa-chart-bar"></i><br>Sales Analysis Dashbpard using Tableau
+            </div>
+            <div class="project" onclick="openModal('p6')">
+                <i class="fas fa-tags"></i><br>Full Cart Store Sales Analysis
+            </div>
+        </div>
+    </section>
+    <!-- Zepto -->
+    <div class="modal" id="p1">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('p1')">&times;</span>
+            <h3>Zepto Sales & Customer Insights Dashboard</h3>
+            <p>Power BI dashboard analyzing ₹4.14+ Cr sales, customer behavior, category trends using DAX.</p>
+            <a href="https://github.com/YaswanthSai2807/Zepto-Analysis.git" target="_blank">View Project</a>
+        </div>
+    </div>
+
+    <!-- HR Analytics -->
+    <div class="modal" id="p2">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('p2')">&times;</span>
+            <h3>HR Analytics Dashboard</h3>
+            <p>Workforce analytics covering attrition, performance, attendance, and employee trends.</p>
+            <a href="https://github.com/YaswanthSai2807/HR-Analysis.git" target="_blank">View Project</a>
+        </div>
+    </div>
+
+    <!-- Bank -->
+    <div class="modal" id="p3">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('p3')">&times;</span>
+            <h3>Bank Statement Analysis</h3>
+            <p>Cash flow, income vs expense, and spending pattern analysis using Power BI.</p>
+            <a href="https://github.com/YaswanthSai2807/BankStatementAnalysis.git" target="_blank">View Project</a>
+        </div>
+    </div>
+
+    <!-- Energy -->
+    <div class="modal" id="p4">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('p4')">&times;</span>
+            <h3>Energy Consumption Analysis</h3>
+            <p>Energy usage trends and optimization dashboard for sustainability insights.</p>
+            <a href="https://github.com/YaswanthSai2807/Energy_Consumption_Analysis.git" target="_blank">View
+                Project</a>
+        </div>
+    </div>
+    <div class="modal" id="p5">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('p5')">&times;</span>
+            <h3>Sales Analysis Dashbpard using Tableau</h3>
+            <p>Tableau dashboard analyzing sales, location, category trends using DAX.</p>
+            <a href="https://public.tableau.com/views/sales_17272811000200/SalesAnlaysis?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
+                target="_blank">View
+                Project</a>
+        </div>
+    </div>
+    <div class="modal" id="p6">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('p6')">&times;</span>
+            <h3>Full Cart Store Sales Analysis</h3>
+            <p>Conducted an in-depth sales analysis for FullCart using Google Sheets, developing a comprehensive
                 dashboard to visualize key performance metrics. The analysis uncovered critical insights, such as "Set"
                 being the top-selling category, March achieving the highest monthly sales, and Amazon emerging as the
                 most effective sales channel. It also highlighted that adult women were the highest-grossing
                 demographic, with Maharashtra leading in sales by state. This project empowered data-driven
                 decision-making and optimized sales strategies.</p>
-            <b>Tools:</b>
-            <ul id="p3-ul">
-                <li>Google Sheets</li>
-                <li>Data Visualization</li>
-            </ul>
             <a href="https://docs.google.com/spreadsheets/d/1tRWaxc7Gbuy9-Y5DjB5veq8bp5H8Cdso2jsczCYL1Gg/edit?usp=sharing"
-                target="_blank">Project Link</a>
-            <button class="close-popup">Close</button>
+                target="_blank">View
+                Project</a>
         </div>
+    </div>
+    <section id="certifications">
+        <h2>Certifications</h2>
 
-        <div class="popup-card" id="p4">
-            <h4>Sales Analysis using Tableau</h4>
-            <div class="popup-images">
-                <div class='tableauPlaceholder' id='viz1727634905143' style='position: relative'><noscript><a
-                            href='#'><img alt='Sales Anlaysis '
-                                src='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;sa&#47;sales_17272811000200&#47;SalesAnlaysis&#47;1_rss.png'
-                                style='border: none' /></a></noscript><object class='tableauViz' style='display:none;'>
-                        <param name='host_url' value='https%3A%2F%2Fpublic.tableau.com%2F' />
-                        <param name='embed_code_version' value='3' />
-                        <param name='site_root' value='' />
-                        <param name='name' value='sales_17272811000200&#47;SalesAnlaysis' />
-                        <param name='tabs' value='no' />
-                        <param name='toolbar' value='yes' />
-                        <param name='static_image'
-                            value='https:&#47;&#47;public.tableau.com&#47;static&#47;images&#47;sa&#47;sales_17272811000200&#47;SalesAnlaysis&#47;1.png' />
-                        <param name='animate_transition' value='yes' />
-                        <param name='display_static_image' value='yes' />
-                        <param name='display_spinner' value='yes' />
-                        <param name='display_overlay' value='yes' />
-                        <param name='display_count' value='yes' />
-                        <param name='language' value='en-US' />
-                    </object></div>
-                <script
-                    type='text/javascript'>                    var divElement = document.getElementById('viz1727634905143'); var vizElement = divElement.getElementsByTagName('object')[0]; if (divElement.offsetWidth > 800) { vizElement.style.width = '1500px'; vizElement.style.height = '1527px'; } else if (divElement.offsetWidth > 500) { vizElement.style.width = '1500px'; vizElement.style.height = '1527px'; } else { vizElement.style.width = '100%'; vizElement.style.height = '1727px'; } var scriptElement = document.createElement('script'); scriptElement.src = 'https://public.tableau.com/javascripts/api/viz_v1.js'; vizElement.parentNode.insertBefore(scriptElement, vizElement);                </script>
+        <div class="certifications">
+
+            <div class="cert-card">
+                <i class="fa-solid fa-chart-column"></i>
+                <h4>Career Essentials in Data Analysis</h4>
+                <span>Microsoft & LinkedIn</span><br>
+                <a href="https://www.linkedin.com/learning/certificates/e2ffdb9650e0f9fbc4506cc2b44583f772c1f615f55e29caef61373dea484cfc" target="_blank">View Certificate</a>
             </div>
-            <p>🚀 Sales Performance Dashboard: Unlocking Data-Driven Insights <br>
-                I'm excited to share my latest work on sales analysis! This dashboard provides a comprehensive overview
-                of key sales metrics, enabling informed decision-making and trend identification. 📊
-                <br>🔹 Key Highlights:
-                <br>📈 Sales growth trends over time, helping identify peak performance periods.
-                <br>🌍 Regional sales breakdown, offering insights into high-performing markets.
-                <br>💼 Product performance analysis, highlighting top and underperforming products.
-                <br>🏆 Key sales KPIs such as revenue, customer acquisition rate, and sales conversion ratios.
-                <br>This analysis helps sales teams strategize more effectively by identifying strengths and areas for
-                improvement. By visualizing real-time data, businesses can adjust their tactics to maximize success.
-            </p>
-            <b>Tools:</b>
-            <ul>
-                <li>Tableau</li>
-                <li>Data Modeling</li>
-                <li>Data Visualization</li>
-            </ul>
-            <a href="https://public.tableau.com/views/sales_17272811000200/SalesAnlaysis?:language=en-US&:sid=&:redirect=auth&:display_count=n&:origin=viz_share_link"
-                target="_blank">Project Link</a>
-            <button class="close-popup">Close</button>
-        </div>
 
-        <div class="popup-card" id="p5">
-            <h4>Energy Consumption Analysis Dashboard</h4>
-            <button class="scroll-button left-scroll">&#10094;</button> <!-- Left Arrow -->
-            <div class="popup-images">
-                <img src="img/energy/Slide3.JPG" class="popup-image" style="min-width: 100%;" alt="slide-1">
-                <img src="img/energy/Slide2.JPG" class="popup-image" style="min-width: 100%;" alt="slide-2">
-                <img src="img/energy/Slide4.JPG" class="popup-image" style="min-width: 100%;" alt="slide-3">
-                <img src="img/energy/Slide5.JPG" class="popup-image" style="min-width: 100%;" alt="slide-4">
+            <div class="cert-card">
+                <i class="fa-solid fa-database"></i>
+                <h4>SQL (Basic & Intermediate)</h4>
+                <span>HackerRank</span><br>
+                <a href="https://www.hackerrank.com/certificates/1a1e64710af5" target="_blank">View Certificate</a>
             </div>
-            <button class="scroll-button right-scroll">&#10095;</button> <!-- Right Arrow -->
-            <p>🔌 Excited to unveil my latest project on Energy Consumption Analysis using Power BI! 💡
-                <br> In this project, I leveraged the power of Power BI to analyze energy consumption patterns and
-                unlock actionable insights for sustainable energy management. By delving into consumption data from
-                various sources, I provided valuable insights to optimize energy usage, reduce costs, and minimize
-                environmental impact.
-                <br>
-                <br>Key Features:
-                <br>📊 In-depth analysis of energy consumption trends across different time periods
-                <br>💡 Visualization of energy usage patterns by building, department, or equipment
-                <br>📈 Comparison of energy consumption between different facilities or locations
-                <br>This project demonstrates my expertise in data analytics, visualization, and sustainability,
-                showcasing how technology can drive positive change in energy management practices.
-            </p>
-            <b>Tools:</b>
-            <ul id="p5-ul">
-                <li>Microsoft Power BI</li>
-                <li>Data Modeling</li>
-                <li>Data Visualization</li>
-            </ul>
-            <a href="https://github.com/YaswanthSai2807/Energy_Consumption_Analysis.git" target="_blank">Project
-                Link</a>
-            <button class="close-popup">Close</button>
 
-        </div>
-
-        <div class="popup-card" id="p6">
-            <h4>Customer Churn Analysis </h4>
-            <button class="scroll-button left-scroll">&#10094;</button> <!-- Left Arrow -->
-            <div class="popup-images">
-                <img src="img/customer/Slide2.JPG" class="popup-image" style="min-width: 100%;" alt="slide-1">
-                <img src="img/customer/Slide3.JPG" class="popup-image" style="min-width: 100%;" alt="slide-2">
+            <div class="cert-card">
+                <i class="fa-solid fa-chart-pie"></i>
+                <h4>Data Analysis Essentials</h4>
+                <span>Cisco</span><br>
+                <a href="https://www.credly.com/badges/5ad77e67-083d-4376-88a2-17c8f63b9d75/linked_in_profile" target="_blank">View Certificate</a>
             </div>
-            <button class="scroll-button right-scroll">&#10095;</button> <!-- Right Arrow -->
-            <p>In this project, I conducted a comprehensive analysis of customer churn using Power BI, aimed at
-                identifying key factors contributing to customer attrition. Leveraging a dataset that included customer
-                demographics, transaction history, and service usage patterns, I developed a robust dashboard to
-                visualize and interpret the data effectively.
-                <br>
-                <br>Key Features:
-                <br>Data Preparation: Cleaned and transformed raw data to create a structured dataset suitable for
-                analysis.
-                <br>Exploratory Data Analysis (EDA): Conducted EDA to uncover trends, patterns, and correlations
-                influencing customer churn.
-                <br>Visualization: Created interactive visualizations to highlight churn rates, customer segments at
-                risk, and the impact of various factors on retention.
-                <br>Recommendations: Delivered strategic recommendations to enhance customer retention efforts, based on
-                data-driven findings.
-            </p>
-            <b>Tools:</b>
-            <ul id="p6-ul">
-                <li>Microsoft Power BI</li>
-                <li>Data Modeling</li>
-                <li>Data Visualization</li>
-            </ul>
-            <a href="https://github.com/YaswanthSai2807/Customer_churn_Analysis.git" target="_blank">Project Link</a>
-            <button class="close-popup">Close</button>
-        </div>
 
-        <div class="popup-card" id="p8">
-            <h4>Portfolio Website</h4>
-            <div class="popup-images">
-                <img src="img/portfolio.png" alt="portfolio">
+            <div class="cert-card">
+                <i class="fa-solid fa-brain"></i>
+                <h4>Introduction to Generative AI</h4>
+                <span>Google</span><br>
+                <a href="https://www.cloudskillsboost.google/public_profiles/ac993453-79e7-45a8-99d3-b5e24c7e1e10/badges/11461189?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share" target="_blank">View Certificate</a>
             </div>
-            <p>Welcome to my portfolio website! As a data enthusiast with a strong foundation in data analysis and
-                visualization, my portfolio showcases a range of projects that highlight my skills in transforming raw
-                data into meaningful insights.
-                <br>
-                <br>Key Features:
-                <br>Data Analysis Projects: Explore my work on customer churn analysis, sales forecasting, and
-                data-driven decision-making. Each project includes a detailed explanation of the methodology, tools
-                used, and the outcomes achieved.
-                <br>Visualizations: Discover interactive dashboards created using Power BI and Tableau, designed to
-                present complex data in a visually engaging manner. My focus is on delivering clarity and actionable
-                insights through effective storytelling.
-                <br>Front-End Development: Browse projects where I applied HTML, CSS, and JavaScript to build responsive
-                and user-friendly web applications. I prioritize clean design and intuitive navigation to enhance user
-                engagement.
-                <br>About Me: Learn about my journey in data analysis and web development, my academic background, and
-                my aspirations to excel as a Data Analyst or Data Scientist.
-            </p>
-            <b>Tools:</b>
-            <ul id="p3-ul">
-                <li>HTML</li>
-                <li>CSS</li>
-                <li>Java Script</li>
-            </ul>
-            <a href="https://github.com/YaswanthSai2807/portfolio_website.git" target="_blank">Project Link</a>
-            <button class="close-popup">Close</button>
-        </div>
 
-    </section>
-
-    <!--Certificates-->
-    <section class="certificates" id="certificates">
-        <h2>Certificates</h2> <br>
-
-        <div class="image-bar-container">
-            <button class="scroll-button left-scroll2">&#10094;</button> <!-- Left Arrow -->
-            <div class="certificate-container">
-                <a href="https://www.linkedin.com/learning/certificates/e2ffdb9650e0f9fbc4506cc2b44583f772c1f615f55e29caef61373dea484cfc?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base%3BSJtOJUcbTB2mIQq4l0ld9Q%3D%3D"
-                    target="_blank"><img src="img/Data Analysis by Microsoft and LinkedIn.jpeg"
-                        alt="Data Analysis by Microsoft and LinkedIn"></a>
-                <a href="https://www.hackerrank.com/certificates/iframe/1a1e64710af5" target="_blank"><img
-                        src="img/hackerranksql(inter).png" alt="Hacker rank SQL Intermediate"></a>
-                <a href="https://www.hackerrank.com/certificates/iframe/6ffd8f4f7f77" target="_blank"><img
-                        src="img/hackerranksql(basic).png" alt="Hacker rank SQL Basic"></a>
-                <a href="https://www.credly.com/badges/5ad77e67-083d-4376-88a2-17c8f63b9d75/linked_in_profile"
-                    target="_blank"><img src="img/cisco.jpg" alt="Cisco Data Essentials"></a>
-                <a href="https://www.cloudskillsboost.google/public_profiles/ac993453-79e7-45a8-99d3-b5e24c7e1e10/badges/11461189?utm_medium=social&utm_source=linkedin&utm_campaign=ql-social-share"
-                    target="_blank"><img src="img/Gen Ai.png" alt="Generative Ai "></a>
-                <a href="https://www.udemy.com/certificate/UC-2469ec69-a352-4688-b436-99ea57434172/"
-                    target="_blank"><img src="img/2in1.jpg" alt="Udemy"></a>
-                <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/PwC%20Switzerland/a87GpgE6tiku7q3gu_PwC%20Switzerland_srxwacFMqbXgytCXv_1719253350903_completion_certificate.pdf"
-                    target="_blank"><img src="img/pwc.jpg" alt="PWC"></a>
-                <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Accenture%20North%20America/hzmoNKtzvAzXsEqx8_Accenture%20North%20America_srxwacFMqbXgytCXv_1718952523619_completion_certificate.pdf"
-                    target="_blank"><img src="img/accenture.jpg" alt="Accenture"></a>
-                <a href="https://www.testdome.com/certificates/26d8e84a72e7488eb39bbb2d690f4b8f" target="_blank"><img
-                        src="img/excelc.png" alt="Excel"></a>
-                <a href="https://www.linkedin.com/learning/certificates/517701df957be9176084eaf06c9b46785e65a80fe5bce4df03eb4bb272128de4?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bx5BzEdx4SduWtvJaD6H3TA%3D%3D"
-                    target="_blank"><img src="img/Learning Java 11.jpeg" alt="Java"></a>
-                <a href="https://www.linkedin.com/learning/certificates/ee7962ce5bf021d7b4dd185a662ae023508b503d692b8f077ac9842c8d08e7c4?lipi=urn%3Ali%3Apage%3Ad_flagship3_profile_view_base_certifications_details%3Bx5BzEdx4SduWtvJaD6H3TA%3D%3D"
-                    target="_blank"><img src="img/Operating System.jpeg" alt="Operating System"></a>
+            <div class="cert-card">
+                <i class="fa-solid fa-briefcase"></i>
+                <h4>Power BI Job Simulation</h4>
+                <span>PwC Switzerland (Forage)</span><br>
+                <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/PwC%20Switzerland/a87GpgE6tiku7q3gu_PwC%20Switzerland_srxwacFMqbXgytCXv_1719253350903_completion_certificate.pdf" target="_blank">View Certificate</a>
             </div>
-            <button class="scroll-button right-scroll2">&#10095;</button> <!-- Right Arrow -->
+
+            <div class="cert-card">
+                <i class="fa-solid fa-briefcase"></i>
+                <h4>Data Analytics and Visualization Job Simulation</h4>
+                <span>Accenture North America (Forage)</span><br>
+                <a href="https://forage-uploads-prod.s3.amazonaws.com/completion-certificates/Accenture%20North%20America/hzmoNKtzvAzXsEqx8_Accenture%20North%20America_srxwacFMqbXgytCXv_1718952523619_completion_certificate.pdf" target="_blank">View Certificate</a>
+            </div>
+
+            <div class="cert-card">
+                <i class="fa-solid fa-code"></i>
+                <h4>Python for Data Science</h4>
+                <span>Great Learning</span><br>
+                <a href="https://verify.mygreatlearning.com/verify/LFKLDRQX" target="_blank">View Certificate</a>
+            </div>
+
         </div>
     </section>
 
-
-    <!--Contact-->
-    <section class="contact" id="contact">
-        <h2>Contact:</h2>
-        <h2>Abbaraju V N S Yaswanth Sai</h2>
-        <p><a href="mailto:saiyaswanthabbaraju@gmail.com">saiyaswanthabbaraju@gmail.com</a></p>
-        <p><a href="tel:+91 8247049609">+91 8247049609</a></p> <br>
-        <h1>Thank You</h1>
+    <section id="contact" class="contact">
+        <h2>Contact</h2>
+        <p><i class="fa-solid fa-envelope"></i><a
+                href="mailto:saiyaswanthabbaraju@gmail.com">saiyaswanthabbaraju@gmail.com</a></p>
+        <p><i class="fa-solid fa-phone"></i><a href="tel:+918247049609">+91 8247049609</a></p>
     </section>
 
-    <!-- Footer -->
-    <footer id="footer">
-        <p>&copy; 2025 Yaswanth Sai. All Rights Reserved.</p>
-        <ul class="social-links">
-            <li><img src="img/linkedin.png" alt=""><a
-                    href="https://www.linkedin.com/in/abbaraju-v-n-s-yaswanth-sai-b6b660234/"
-                    target="_blank">LinkedIn</a></li>
-            <li><img src="img/github.png" alt=""><a href="https://github.com/YaswanthSai2807" target="_blank">GitHub</a>
-            </li>
-        </ul>
+    <footer>
+        © 2025 Yaswanth Sai · Data Analyst Portfolio
     </footer>
+
+    <script>
+        const menu = document.getElementById('menu');
+        const nav = document.getElementById('navLinks');
+        menu.onclick = () => nav.classList.toggle('show');
+
+        function openModal(id) {
+            document.getElementById(id).style.display = 'flex';
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeModal(id) {
+            document.getElementById(id).style.display = 'none';
+            document.body.style.overflow = 'auto';
+        }
+    </script>
+
 </body>
 
 </html>
